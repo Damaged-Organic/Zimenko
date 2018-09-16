@@ -1,0 +1,186 @@
+@import '../components/common.less';
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html,
+body,
+#page,
+#content{
+    overflow: visible;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  about start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.about-holder{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    .photo-holder{
+        width: 49.47916666666667%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 200px 0 120px 150px;
+        box-sizing: border-box;
+        overflow: hidden;
+        figure{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            img{
+                width: auto;
+                height: auto;
+                max-height: 100%;
+            }
+        }
+    }
+    .inner{
+        width: 50.52083333333333%;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        padding: 420px 150px 120px 60px;
+        margin-left: 49.47916666666667%;
+        box-sizing: border-box;
+        overflow: hidden;
+        .info-holder{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            h1{
+                font-size: 3.75em;
+                font-size: 3.125vw;
+                font-weight: 300;
+                color: @black;
+                text-transform: uppercase;
+                & > span{
+                    display: block;
+                    font-weight: 500;
+                }
+            }
+            p{
+                margin-top: 60px;
+                & + p{ margin-top: 15px; }
+            }
+        }
+    }
+    .btn-contact{
+        position: fixed;
+        top: 50%;
+        right: 60px;
+        z-index: 5;
+        transform-origin: 100% 100%;
+        transform: rotate(-90deg) translateX(105px);
+        & > a{
+            z-index: 5;
+            &:before{ z-index: 1; }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  about end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+
+    .about-holder{
+        height: auto;
+        .photo-holder{
+            width: 100%;
+            height: auto;
+            position: static;
+            padding: 240px 150px 60px 60px;
+            figure{
+                height: auto;
+                img{
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    max-width: 100%;
+                    max-height: auto;
+                }
+            }
+        }
+        .inner{
+            width: 100%;
+            height: auto;
+            position: static;
+            padding: 0px 150px 120px 60px;
+            margin-left: 0%;
+            .info-holder{
+                h1{ font-size: 1.875em; }
+                p{
+                    font-size: .875em;
+                    margin-top: 30px;
+                }
+            }
+        }
+        .btn-contact{
+            a{
+                .text{ font-size: .875em; }
+                &:hover{
+                    &:before{ transform: translateX(-100%); }
+                    .text{ color: @black; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @tabletLandscape{
+
+    .about-holder{
+        .photo-holder{
+            width: 50%;
+            float: left;
+            padding: 240px 60px 60px;
+        }
+        .inner{
+            width: 50%;
+            float: left;
+            padding: 350px 150px 60px 0;
+        }
+    }
+}
+
+@media only screen and @phonePortrait{
+
+    .about-holder{
+        overflow: hidden;
+        .photo-holder{
+            width: 100%;
+            height: auto;
+            padding: 150px 30px 30px;
+        }
+        .inner{
+            width: 100%;
+            height: auto;
+            padding: 0px 30px;
+            .info-holder{
+                h1{ font-size: 1.875em; }
+                p{ margin-top: 15px; }
+            }
+        }
+        .btn-contact{
+            position: static;
+            top: auto;
+            right: auto;
+            margin: 30px 30px 60px;
+            transform: rotate(0deg) translateX(0);
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

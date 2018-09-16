@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106471938-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106471938-1');
+    </script>
+    {{> head/meta meta=meta}}
+	{{> head/favicons}}
+    <link rel="stylesheet" href="{{static 'css' 'album.bundle.min.css'}}">
+</head>
+<body class="preload">
+    <div id="page">
+        <span id="top-lane"></span>
+        <div id="menu">
+            <div class="top-holder">
+                {{> header/logo}}
+                {{> header/btn_close}}
+                {{> header/langs_holder}}
+            </div>
+            {{> menu/menu_holder}}
+			{{> menu/socials_holder}}
+			{{> menu/text_overlay}}
+        </div>
+        <main id="content">
+            <header id="header">
+                {{> header/logo_holder}}
+                {{> header/open_menu_button}}
+                {{> header/langs_holder}}
+            </header>
+            <section class="container album-holder">
+                <div class="btn btn-close back-link">
+                    <a href="{{ backUrl }}">
+                        <span class="icon icon-close"></span>
+                    </a>
+                </div>
+                <div class="gallery-holder">
+                    <div class="gallery" id="gallery">
+                        <ul class="gallery-list">
+                            {{#each lookbook.images}}
+                                <li class="gallery-item">
+                                    <div class="photo-holder" data-src="{{ cloudinary public_id '{"format": "png"}' }}">
+                                        <figure>
+                                            <img src="{{ cloudinary public_id '{
+                                                "format": "png", "height": 648, "crop": "thumb", "gravity": "center"
+                                            }' }}" alt="{{ public_id }}">
+                                        </figure>
+                                    </div>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="arrow arrow-left">
+                        <span class="icon icon-arrow-small-left"></span>
+                        <span class="text">{{i18n 'back'}}</span>
+                    </div>
+                    <div class="arrow arrow-right">
+                        <span class="text">{{i18n 'forth'}}</span>
+                        <span class="icon icon-arrow-small-right"></span>
+                    </div>
+                    {{#if lookbook.story}}
+                        <div class="info-btn" id="open-info-btn">
+                            <span class="icon icon-info"></span>
+                        </div>
+                    {{/if}}
+                    <span class="title-holder">
+                        <span class="style">{{ lookbook.style }}</span>
+                        <span class="line"></span>
+                        <span class="title">{{ lookbook.title }}</span>
+                    </span>
+                    <div class="tooltip">
+                        <span class="text">{{i18n 'Drag to discover more'}}</span>
+                        <span class="icon icon-arrow-small-right"></span>
+                    </div>
+                </div>
+                {{#if lookbook.story}}
+                    <div class="info-holder" id="info-holder">
+                        <div class="inner">
+                            <div class="info">
+                                <h1>{{ lookbook.title }}</h1>
+                                <span class="line"></span>
+                                {{{ lookbook.story }}}
+                            </div>
+                        </div>
+                        <span class="icon icon-arrow-bottom"></span>
+                        <div class="btn btn-close" id="close-info-btn">
+                            <span class="icon icon-close"></span>
+                        </div>
+                    </div>
+                {{/if}}
+                <div class="photo-view-holder" id="photo-view">
+                    <div class="inner">
+                        <div class="photo-holder">
+                            <figure id="photo-container"></figure>
+                        </div>
+                    </div>
+                    <div class="photo-loader svg-holder">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.2 261.5">
+                            <path class="letter" d="M91.7,103.5l47.8-59.2H0V0h196.2v44.2l-76.3,94.5L91.7,103.5z M104.5,158l-47.8,59.2h139.5v44.2H0v-44.2 l76-94.5L104.5,158z"/>
+                        </svg>
+                    </div>
+                    <div class="btn-close close-photo-view">
+                        <span class="icon icon-close"></span>
+                    </div>
+                </div>
+            </section>
+        </main>
+        {{> loaders/progress_holder}}
+        <div id="common-loader-holder">
+            {{> loaders/loader}}
+        </div>
+        {{> common/landscape}}
+    </div>
+    <script src="{{static 'js' 'album.bundle.min.js'}}"></script>
+</body>
+</html>

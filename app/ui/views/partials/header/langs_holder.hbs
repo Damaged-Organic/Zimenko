@@ -1,0 +1,11 @@
+{{#blockLangs}}
+    <div class="langs-holder">
+        <ul>
+            {{#each this}}
+                <li {{#isCurrentLocale this}} class="active" {{/isCurrentLocale}}>
+                    <a href="{{ getAbsoluteURL this }}">{{ toUpper this }}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+{{/blockLangs}}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106471938-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106471938-1');
+    </script>
+    {{> head/meta meta=meta}}
+	{{> head/favicons}}
+    <link rel="stylesheet" href="{{static 'css' 'blog.bundle.min.css'}}">
+</head>
+<body class="preload">
+    <div id="page">
+        <span id="top-lane"></span>
+        <div id="menu">
+            <div class="top-holder">
+                {{> header/logo}}
+                {{> header/btn_close}}
+                {{> header/langs_holder}}
+            </div>
+            {{> menu/menu_holder}}
+			{{> menu/socials_holder}}
+			{{> menu/text_overlay}}
+        </div>
+        <main id="content">
+            <header id="header">
+                {{> header/logo_holder}}
+                {{> header/open_menu_button}}
+                {{> header/langs_holder}}
+            </header>
+            <section class="container blog-holder">
+                <div class="inner" id="gallery-holder">
+                    <div class="blog" id="gallery-list">
+                        {{#each articles}}
+                            <article class="article-holder gallery-item">
+                                <div class="article">
+                                    <div class="inner">
+                                        <a href="{{url 'blogArticle' datestamp=datestamp slug=slug }}">
+                                            <h2>{{ title }}</h2>
+                                            <figure>
+                                                <img src="{{ cloudinary image.public_id '{
+                                                    "format": "png", "width": 840}'
+                                                }}" alt="{{ title }}">
+                                            </figure>
+                                            <span class="number-holder">
+                                                {{#blockRelativeIndex @root.model @index}}
+                                                  {{#each this}}
+                                                    <span class="num">{{ this }}</span>
+                                                  {{/each}}
+                                                {{/blockRelativeIndex}}
+                                            </span>
+                                            <span class="more">{{i18n 'read more'}}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        {{/each}}
+                    </div>
+                </div>
+                <span class="tooltip-holder">{{i18n 'scroll to discover more'}}</span>
+                {{> common/navigation}}
+            </section>
+        </main>
+        {{> loaders/progress_holder}}
+        <div id="common-loader-holder">
+            {{> loaders/loader}}
+        </div>
+        {{> common/landscape}}
+    </div>
+    <script src="{{static 'js' 'blog.bundle.min.js'}}"></script>
+</body>
+</html>

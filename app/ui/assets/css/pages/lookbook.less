@@ -1,0 +1,333 @@
+@import '../components/common.less';
+@import '../components/navigation.less';
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html,
+body,
+#page,
+#content{
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+#common-loader-holder{ display: block; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  lookbook start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.lookbook-holder{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    & > .inner{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        & > .lookbook{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-flow: 0 1 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .8s @easing 0s;
+            overflow: hidden;
+            .album-holder{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                flex: 0 1 100%;
+                overflow: hidden;
+                & > h2{
+                    display: inline-block;
+                    position: absolute;
+                    top: 50%;
+                    left: 60px;
+                    transform-origin: 0 0;
+                    font-size: 1em;
+                    transform: rotate(-90deg) translateX(-50%);
+                    overflow: hidden;
+                    & > span{
+                        display: inline-block;
+                        vertical-align: middle;
+                        font-size: .875em;
+                        font-weight: 500;
+                        color: @black;
+                        text-transform: uppercase;
+                        &.line{
+                            width: 60px;
+                            height: 1px;
+                            margin: 0 15px;
+                            background: @black;
+                        }
+                    }
+                }
+                .album{
+                    width: 38.54166666666667%;
+                    height: auto;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    .inner{
+                        width: 100%;
+                        height: 0;
+                        position: relative;
+                        padding-top: 56.25%;
+                        box-sizing: border-box;
+                        a{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            figure{
+                                width: 100%;
+                                height: 100%;
+                                position: relative;
+                                overflow: hidden;
+                                img{
+                                    width: 100%;
+                                    height: auto;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 0;
+                                    transition: all .4s @easing 0s;
+                                    filter: grayscale(100%);
+                                    transform: translate3d(0, -50%, 0px);
+                                    backface-visibility: hidden;
+                                    overflow: hidden;
+                                }
+                            }
+                            .more{
+                                display: inline-block;
+                                vertical-align: top;
+                                position: absolute;
+                                left: 50%;
+                                bottom: -45px;
+                                z-index: 5;
+                                font-size: .75em;
+                                font-weight: 300;
+                                color: @gold;
+                                text-transform: uppercase;
+                                letter-spacing: .6em;
+                                text-indent: .6em;
+                                transform: translateX(-50%);
+                            }
+                            &:hover{
+                                figure img{ filter: grayscale(0%); }
+                            }
+                        }
+                    }
+                    .number-holder{
+                        display: inline-block;
+                        vertical-align: top;
+                        position: absolute;
+                        bottom: -6px;
+                        right: 0;
+                        z-index: 10;
+                        transform: translate3d(50%, 50%, 5px);
+                        backface-visibility: hidden;
+                        visibility: visible;
+                        .num{
+                            display: inline-block;
+                            vertical-align: top;
+                            position: relative;
+                            font-family: 'Elianto';
+                            font-size: 11em;
+                            font-size: 9.166666666666667vw;
+                            color: @gold;
+                            & + .num{
+                                position: absolute;
+                                top: 0;
+                                left: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & > .tooltip-holder{
+        display: inline-block;
+        vertical-align: top;
+        max-width: 120px;
+        position: absolute;
+        left: 60px;
+        bottom: 45px;
+        z-index: 5;
+        font-size: .875em;
+        color: @black;
+        text-transform: lowercase;
+        overflow: hidden;
+    }
+}
+
+#progress-holder{
+    background: @gray;
+    & > .progress-line{
+        transition: all .8s @easing 0s;
+        background: @black;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  lookbook end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    html,
+    body,
+    #page,
+    #content{
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .lookbook-holder{
+        height: auto;
+        padding: 240px 60px 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        & > .categories-holder{
+            display: block;
+            position: relative;
+            top: 0;
+            right: 0;
+            z-index: 5;
+            margin-bottom: 30px;
+            transform: rotate(0deg);
+            ul{
+                display: block;
+                li > a{
+                    .line{ width: 30px; }
+                }
+            }
+        }
+        & > .inner{
+            height: auto;
+            cursor: normal;
+            &:active{ cursor: normal; }
+            & > .lookbook{
+                display: block;
+                height: auto;
+                position: relative;
+                .album-holder{
+                    height: auto;
+                    position: relative;
+                    & + .album-holder{ margin-top: 30px; }
+                    & > h2{ display: none; }
+                    .album{
+                        width: 100%;
+                        height: auto;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        transform: translateX(0) translateY(0);
+                        .inner{
+                            a{
+                                figure img{
+                                    transition: all .2s @easing 0s;
+                                    filter: grayscale(100%);
+                                }
+                                .more{ display: none; }
+                                &:hover figure img{ filter: grayscale(100%); }
+                            }
+                        }
+                        .number-holder{
+                            position: absolute;
+                            top: 30px;
+                            right: 30px;
+                            bottom: auto;
+                            transform: translateX(0) translateY(0);
+                            .num{
+                                font-size: 3.75em;
+                                & + .num{
+                                    position: relative;
+                                    top: 0;
+                                    left: 0;
+                                }
+                            }
+                        }
+                    }
+                    &.__colorized .album .inner a figure img{ filter: grayscale(0%); }
+                }
+            }
+        }
+        & > .tooltip-holder{ display: none; }
+    }
+
+    #progress-holder{
+        background: @black;
+        & > .progress-line{ display: none; }
+    }
+
+}
+
+@media only screen and @tabletLandscape{
+
+    .lookbook-holder{
+        & > .inner .lookbook .album-holder{
+            & + .album-holder{ margin-top: 60px; }
+        }
+    }
+
+    #progress-holder{
+        background: @black;
+        & > .progress-line{ display: none; }
+    }
+
+}
+
+@media only screen and @phonePortrait{
+
+    .lookbook-holder{
+        padding: 120px 30px 0;
+        box-sizing: border-box;
+        & > .categories-holder{
+            ul{
+                display: block;
+                width: 100%;
+                text-align: left;
+                margin-top: 30px;
+                li{
+                    display: inline-block;
+                    vertical-align: top;
+                    width: auto;
+                    & + li{ margin: 0 0 0 15px; }
+                    a .line{ display: none; }
+                }
+            }
+        }
+        & > .inner > .lookbook .album-holder{
+            & + .album-holder{ margin-top: 15px; }
+            & > h2{
+                left: 15px;
+                bottom: 15px;
+                & > span{ font-size: 1.125em; }
+            }
+            .album .number-holder{
+                top: 15px;
+                right: 15px;
+                .num{ font-size: 1.5em; }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

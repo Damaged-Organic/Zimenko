@@ -1,0 +1,12 @@
+<div class="categories-holder">
+    <ul>
+        {{#each lookbookCategories}}
+            <li class="{{#compare slug '===' ../category}}active{{/compare}}">
+                <a href="{{ url 'lookbook' }}?category={{ slug }}">
+                    <span class="line"></span>
+                    <span class="text">{{ title }}</span>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</div>

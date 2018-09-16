@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106471938-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106471938-1');
+    </script>
+    {{> head/meta meta=meta}}
+	{{> head/favicons}}
+    <link rel="stylesheet" href="{{static 'css' 'article.bundle.min.css'}}">
+</head>
+<body class="preload">
+    <div id="page">
+        <span id="top-lane"></span>
+        <div id="menu">
+            <div class="top-holder">
+                {{> header/logo}}
+                {{> header/btn_close}}
+                {{> header/langs_holder}}
+            </div>
+            {{> menu/menu_holder}}
+			{{> menu/socials_holder}}
+			{{> menu/text_overlay}}
+        </div>
+        <main id="content">
+            <header id="header">
+                {{> header/logo_holder}}
+                {{> header/open_menu_button}}
+                {{> header/langs_holder}}
+            </header>
+            <article class="container article-holder">
+                <a href="{{url 'blog' page=page}}" class="back-link">
+                    <span class="line"></span>
+                    <span class="text">{{i18n 'back to blog'}}</span>
+                </a>
+                <div class="inner">
+                    <div class="intro-holder">
+                        <figure>
+                            <img src="{{ cloudinary article.image.public_id '{ "format": "png" }'}}" alt="{{ article.title }}">
+                        </figure>
+                        <div class="socials-holder social-likes">
+                            <time datetime="{{ article.datestamp }}">{{ article.humanstamp }}</time>
+                            <a href="#" class="social-link icon icon-facebook facebook"></a>
+                            <a href="#" class="social-link icon icon-twitter twitter"></a>
+                        </div>
+                    </div>
+
+                    <div class="info-holder">
+                        <h1>{{ article.title }}</h1>
+                        <span class="underline"></span>
+                        {{{ article.content }}}
+                    </div>
+
+                    {{#each articleBlocks}}
+                        {{#if this.notEmpty}}
+                            <div class="info-holder">
+                                {{#if image.public_id}}
+                                    <figure>
+                                        <img src="{{ cloudinary image.public_id '{"format": "png"}' }}" alt="{{ title }}">
+                                    </figure>
+                                {{/if}}
+
+                                {{#if video}}
+                                    <div class="video-holder">
+                                        <div class="video">
+                                            <iframe src="{{ video }}" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+                                {{#if content}}
+                                    {{{ content }}}
+                                {{/if}}
+                            </div>
+
+                            {{#if quote.text}}
+                                <div class="quote-holder">
+                                    <div class="quote">
+                                        <span class="upperline"></span>
+                                        <p>{{ quote.text }}</p>
+                                        <span class="author">{{ quote.author.name }} <span>{{ quote.author.surname }}</span></span>
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </article>
+            <div id="scroll-top-holder">
+                <div class="inner">
+                    <span class="icon icon-arrow-small-top"></span>
+                    <span class="text">scroll to top</span>
+                </div>
+            </div>
+            <div class="navigation-holder">
+                {{#if prevArticle}}
+                    <div class="btn btn-prev">
+                        <a href="{{url 'blogArticle' datestamp=prevArticle.datestamp slug=prevArticle.slug}}">
+                            <span class="text">{{i18n 'back'}}</span>
+                        </a>
+                    </div>
+                {{/if}}
+                {{#if nextArticle}}
+                    <div class="btn btn-next">
+                        <a href="{{url 'blogArticle' datestamp=nextArticle.datestamp slug=nextArticle.slug}}">
+                            <span class="text">{{i18n 'forth'}}</span>
+                        </a>
+                    </div>
+                {{/if}}
+            </div>
+        </main>
+        {{> loaders/progress_holder}}
+        <div id="common-loader-holder">
+            {{> loaders/loader}}
+        </div>
+        {{> common/landscape}}
+    </div>
+    <script src="{{static 'js' 'article.bundle.min.js'}}"></script>
+</body>
+</html>

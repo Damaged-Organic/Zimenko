@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+@font-face{
+    font-family: 'Elianto';
+    src:url('../fonts/elianto.eot');
+    src:url('../fonts/elianto.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/elianto.woff') format('woff'),
+        url('../fonts/elianto.ttf') format('truetype'),
+        url('../fonts/elianto.svg#elianto') format('svg');
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  system variables start                    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@white: #ffffff;
+@gray: #d1d1d1;
+@gold: #d3ab5e;
+@black: #1e1c21;
+
+@lightGreen: #DFF2BF;
+@darkGreen: #4F8A10;
+@lightRed: #FFBABA;
+@darkRed: #D8000C;
+
+@easing: ease-in-out;
+
+@tablet: ~'(max-width: 1024px)';
+@tabletLandscape: ~'(max-width: 1024px) and (orientation: landscape)';
+@phoneLandscape: ~'(max-width: 767px) and (orientation: landscape)';
+@phonePortrait: ~'(max-width: 440px) and (orientation: portrait)';
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  system variables end                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  fonts start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h1, h2, h3, h4, h5, h6,
+p, a, small, span, time,
+input, label, textarea{
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: @black;
+}
+
+p, a, small, time, span,
+input, textarea, label{
+    font-size: 1em;
+}
+
+a{
+    text-decoration: none;
+}
+
+small{
+    font-size: .875em;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  fonts end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  buttons start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.btn{
+    width: 140px;
+    height: 40px;
+    overflow: hidden;
+    & > a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: @gray;
+        border-radius: 20px;
+        z-index: 10;
+        overflow: hidden;
+        &:before{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            background: @gold;
+            transition: all .4s @easing 0s;
+            transform: translateX(-100%);
+            overflow: hidden;
+        }
+        .text{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            font-size: 1em;
+            color: @black;
+            text-align: center;
+            line-height: 40px;
+            text-transform: lowercase;
+            transition: all .4s @easing 0s;
+            overflow: hidden;
+        }
+        &:hover{
+            &:before{ transform: translateX(0%); }
+            .text{ color: @white; }
+        }
+    }
+}
+
+.btn-close{
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border-radius: 50%;
+    background: @gold;
+    cursor: pointer;
+    overflow: hidden;
+    & > .icon{
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -8px 0 0 -8px;
+        color: @white;
+        overflow: hidden;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  buttons end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  helpers start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.clearfix{
+    &:after{
+        display: block;
+        height: 0;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+figure,
+figure > img,
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.svg-holder{
+    position: relative;
+    & > svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  helpers end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+

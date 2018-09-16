@@ -1,0 +1,294 @@
+@import '../components/common.less';
+@import '../components/navigation.less';
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#common-loader-holder{ display: block; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  blog start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.blog-holder{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    & > .inner{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        user-select: none;
+        overflow: hidden;
+        & > .blog{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-flow: row nowrap;
+            transition: all .8s @easing 0s;
+            overflow: hidden;
+            .article-holder{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                flex: 0 1 100%;
+                overflow: hidden;
+                .article{
+                    width: 38.54166666666667%;
+                    height: auto;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    & > .inner{
+                        width: 100%;
+                        height: 0;
+                        position: relative;
+                        padding-top: 56.25%;
+                        a{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            backface-visibility: hidden;
+                            h2{
+                                display: inline-block;
+                                max-width: 340px;
+                                position: absolute;
+                                left: 100%;
+                                bottom: 21.63461538461538%;
+                                z-index: 5;
+                                font-size: 2.625em;
+                                font-size: 2.5vw;
+                                font-weight: 300;
+                                color: @black;
+                                text-transform: uppercase;
+                                transform: translateX(30px);
+                                & > b{ font-weight: 500; }
+                            }
+                            figure{
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                position: relative;
+                                overflow: hidden;
+                                img{
+                                    width: 100%;
+                                    height: auto;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 0;
+                                    transition: all .4s @easing 0s;
+                                    filter: grayscale(100%);
+                                    transform: translateY(-50%);
+                                }
+                            }
+                            .number-holder{
+                                display: inline-block;
+                                vertical-align: top;
+                                position: absolute;
+                                bottom: -6px;
+                                right: 0;
+                                z-index: 10;
+                                transform: translateX(50%) translateY(50%);
+                                .num{
+                                    display: inline-block;
+                                    vertical-align: top;
+                                    position: relative;
+                                    font-family: 'Elianto';
+                                    font-size: 11em;
+                                    font-size: 9.166666666666667vw;
+                                    color: @gold;
+                                    & + .num{
+                                        position: absolute;
+                                        top: 0;
+                                        left: 100%;
+                                    }
+                                }
+                            }
+                            .more{
+                                display: inline-block;
+                                position: absolute;
+                                left: 50%;
+                                bottom: 0;
+                                font-size: .75em;
+                                font-weight: 300;
+                                color: @gold;
+                                text-transform: uppercase;
+                                letter-spacing: .6em;
+                                text-indent: .6em;
+                                transform: translateX(-50%) translateY(45px);
+                            }
+                            &:hover{
+                                figure img{ filter: grayscale(0%); }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & > .tooltip-holder{
+        display: inline-block;
+        position: absolute;
+        max-width: 120px;
+        left: 60px;
+        bottom: 45px;
+        z-index: 10;
+        color: @black;
+        font-size: .875em;
+        text-transform: lowercase;
+        overflow: hidden;
+    }
+
+}
+
+#progress-holder{
+    background: @gray;
+    & > .progress-line{
+        transition: all .8s @easing 0s;
+        background: @black;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  blog end                                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    html,
+    body,
+    #page,
+    #content,
+    #content > .blog-holder,
+    #content > .blog-holder > .inner{
+        height: auto;
+        overflow: visible;
+    }
+
+    .blog-holder{
+        padding: 240px 60px 0;
+        box-sizing: border-box;
+        & > .inner{
+            & > .blog{
+                display: block;
+                width: 100%;
+                height: auto;
+                position: static;
+                cursor: default;
+                .article-holder{
+                    height: auto;
+                    & + .article-holder{ margin-top: 30px; }
+                    .article{
+                        width: 100%;
+                        height: auto;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        transform: translateX(0) translateY(0);
+                        & > .inner{
+                            width: 100%;
+                            height: 0;
+                            position: relative;
+                            padding-top: 56.25%;
+                            a{
+                                h2{
+                                    display: block;
+                                    max-width: 100%;
+                                    left: 0;
+                                    bottom: 0;
+                                    font-size: 1.875em;
+                                    font-weight: 300;
+                                    color: @white;
+                                    padding: 0 30px 30px;
+                                    box-sizing: border-box;
+                                    transform: translateX(0);
+                                }
+                                figure img{
+                                    transition: none;
+                                    filter: grayscale(100%);
+                                }
+                                .number-holder{
+                                    right: 0;
+                                    top: 30px;
+                                    right: 30px;
+                                    bottom: auto;
+                                    transform: translateX(0) translateY(0);
+                                    .num{
+                                        font-family: 'Elianto';
+                                        font-size: 3.75em;
+                                        & + .num{
+                                            position: relative;
+                                            left: 0;
+                                        }
+                                    }
+                                }
+                                .more{ display: none; }
+                                &:hover figure img{ filter: grayscale(100%); }
+                            }
+                        }
+                    }
+                    &.__colorized{
+                        .article > .inner a figure img{ filter: grayscale(0%); }
+                    }
+                }
+            }
+        }
+        & > .tooltip-holder{ display: none; }
+
+    }
+
+    #progress-holder{
+        background: @black;
+        & > .progress-line{ display: none; }
+    }
+
+}
+
+@media only screen and @tabletLandscape{
+
+    .blog-holder > .inner > .blog .article-holder + .article-holder{
+        margin-top: 60px;
+    }
+
+}
+
+@media only screen and @phonePortrait{
+
+    .blog-holder{
+        padding: 120px 30px 0;
+        & > .inner > .blog .article-holder{
+            & + .article-holder{ margin-top: 15px; }
+            .article > .inner a{
+                h2{
+                    padding: 0 15px 15px;
+                    font-size: 1.125em;
+                }
+                .number{
+                    top: 15px;
+                    right: 15px;
+                    font-size: 1.5em;
+                }
+                .number-holder{
+                    top: 15px;
+                    right: 15px;
+                    .num{ font-size: 1.5em; }
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

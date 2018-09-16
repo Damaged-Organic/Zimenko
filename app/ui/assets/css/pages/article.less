@@ -1,0 +1,438 @@
+@import '../components/common.less';
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html,
+body,
+#page,
+#content{
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  article start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.article-holder{
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: relative;
+    overflow: visible;
+    & > .back-link{
+        display: inline-block;
+        position: fixed;
+        top: 45%;
+        left: 60px;
+        z-index: 10;
+        transform-origin: 0 0;
+        transform: rotate(-90deg) translateX(-100%);
+        overflow: hidden;
+        .line{
+            display: inline-block;
+            vertical-align: middle;
+            width: 60px;
+            height: 1px;
+            margin-right: 15px;
+            position: relative;
+            background: @black;
+            overflow: hidden;
+            &:before{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                background: @gold;
+                transition: all .2s @easing 0s;
+                transform: translateX(-100%);
+                overflow: hidden;
+            }
+        }
+        .text{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: .875em;
+            color: @black;
+            transition: all .2s @easing 0s;
+        }
+        &:hover{
+            .line:before{ transform: translateX(0%); }
+            .text{ color: @gold; }
+        }
+    }
+    & > .inner{
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 240px 0 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        & > .intro-holder{
+            width: 100%;
+            height: auto;
+            padding: 0 12.5%;
+            box-sizing: border-box;
+            overflow: hidden;
+            .socials-holder{
+                display: flex;
+                width: 100%;
+                height: auto;
+                flex-flow: row nowrap;
+                margin-top: 30px;
+                & > time{
+                    font-size: 1em;
+                    color: @black;
+                    margin-right: auto;
+                }
+                & > .social-link{
+                    display: block;
+                    width: 45px;
+                    height: 45px;
+                    font-size: 2.8125em;
+                    color: @gray;
+                    transition: all .2s @easing 0s;
+                    & + .social-link{ margin-left: 15px; }
+                    .social-likes__button,
+                    .social-likes__counter{
+                        display: none;
+                    }
+                    &:hover{ color: @gold; }
+                }
+            }
+        }
+        & > .info-holder{
+            width: 100%;
+            height: auto;
+            padding: 0 15.625%;
+            box-sizing: border-box; 
+            overflow: hidden;
+            h1, h2, h3{
+                font-size: 3.75em;
+                font-size: 3.125vw;
+                font-weight: 300;
+                color: @black;
+                margin-top: 75px;
+                & > span{ font-weight: 500; }
+            }
+            h2, h3{
+                font-size: 1.875em;
+                font-size: 1.5625vw;
+                margin-top: 0;
+            }
+            .underline{
+                display: block;
+                width: 100%;
+                height: 1px;
+                margin: 30px 0;
+                background: @gray;
+                overflow: hidden;
+            }
+            p + p{ margin-top: 30px; }
+            img{ margin: 60px 0; }
+            .video-holder{
+                width: 100%;
+                height: auto;
+                padding: 0 15%;
+                margin-bottom: 60px;
+                box-sizing: border-box;
+                overflow: hidden;
+                .video{
+                    width: 100%;
+                    height: 0;
+                    position: relative;
+                    padding-top: 56.25%;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    & > iframe{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        & > .quote-holder{
+            width: 100%;
+            height: auto;
+            margin: 90px 0;
+            padding: 0 23%;
+            background: @gray;
+            box-sizing: border-box;
+            overflow: hidden;
+            .upperline{
+                display: block;
+                width: 60px;
+                height: 1px;
+                margin: 60px 0 30px;
+                background: @black;
+                overflow: hidden;
+            }
+            p{
+                font-size: 1.125em;
+                font-weight: 500;
+            }
+            .author{
+                display: block;
+                width: 100%;
+                font-size: .875em;
+                font-weight: 300;
+                text-align: right;
+                padding: 0 30px;
+                margin: 30px 0 60px;
+                box-sizing: border-box;
+                overflow: hidden;
+                & > span{ font-weight: 500; }
+            }
+        }
+    }
+}
+
+#content{
+    & > .navigation-holder{
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 30px 0 120px;
+        padding: 0 60px;
+        box-sizing: border-box;
+        overflow: hidden;
+        & > .btn{
+            width: 180px;
+            &.btn-prev{ float: left; }
+            &.btn-next{ float: right; }
+        }
+    }
+}
+
+#scroll-top-holder{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 120px;
+    overflow: hidden;
+    & > .inner{
+        width: 180px;
+        height: auto;
+        margin: 0 auto;
+        cursor: pointer;
+        overflow: hidden;
+        .icon,
+        .text{
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        .icon{
+            font-size: 1.875em;
+            color: @black;
+            text-align: center;
+             transition: all .2s @easing 0s;
+        }
+        .text{
+            font-size: .875em;
+            color: @black;
+            margin-top: 15px;
+            text-align: center;
+            transition: all .2s @easing 0s;
+        }
+        &:hover{
+            .icon,
+            .text{
+                color: @gold;
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  article end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+
+    .article-holder{
+        min-height: auto;
+        overflow: hidden;
+        & > .back-link{ display: none; }
+        & > .inner{
+            padding: 240px 0 0;
+            & > .intro-holder{
+                padding: 0 60px;
+                .socials-holder{
+                    display: block;
+                    text-align: right;
+                    & > time{
+                        display: inline-block;
+                        vertical-align: top;
+                        font-size: .875em;
+                        float: left;
+                    }
+                    & > .social-link{
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 30px;
+                        height: 30px;
+                        font-size: 1.875em;
+                        color: @black;
+                        transition: none;
+                        &:hover{ color: @black; }
+                    }
+                }
+            }
+            & > .info-holder{
+                padding: 0 60px;
+                h1, h2, h3{
+                    font-size: 1.875em;
+                    margin-top: 60px;
+                }
+                h2, h3{
+                    font-size: 1.125em;
+                    margin-top: 0;
+                }
+                .underline{ margin: 15px 0; }
+                p + p{ margin-top: 15px; }
+                img{ margin: 30px 0; }
+                .video-holder{
+                    padding: 0 60px;
+                    margin-bottom: 30px;
+                }
+            }
+            & > .quote-holder{
+                margin: 60px 0;
+                padding: 0 120px;
+            }
+        }
+    }
+
+    #content{
+        & > .navigation-holder{
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 30px 0 60px;
+            padding: 0 60px;
+            justify-content: none;
+            & > .btn{
+                width: 180px;
+                &.btn-prev{ float: left; }
+                &.btn-next{ float: right; }
+                & > a{
+                    &:before{ display: none; }
+                    &:hover .text{ color: @black; }
+                }
+            }
+        }
+    }
+
+    #scroll-top-holder{
+        margin-top: 60px;
+        & > .inner{
+            &:hover{
+                .icon,
+                .text{
+                    color: @black;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @phonePortrait{
+
+    .article-holder{
+        overflow: hidden;
+        & > .inner{
+            padding: 120px 0 0;
+            & > .intro-holder{
+                padding: 0 30px;
+                .socials-holder{
+                    display: block;
+                    flex-flow: none;
+                    margin-top: 15px;
+                    & > time{
+                        display: inline-block;
+                        vertical-align: top;
+                        font-size: .875em;
+                        color: @black;
+                    }
+                    & > .social-link{
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 30px;
+                        height: 30px;
+                        font-size: 1.875em;
+                        color: @black;
+                        transition: none;
+                        &:hover{ color: @black; }
+                    }
+                }
+            }
+            & > .info-holder{
+                padding: 0 30px;
+                h1, h2, h3{
+                    font-size: 1.5em;
+                    font-weight: 300;
+                    margin-top: 45px;
+                }
+                h2, h3{ font-size: 1.125em; }
+                .underline{ margin: 15px 0; }
+                p{
+                    font-size: .875em;
+                    & + p{ margin-top: 15px; }
+                }
+                img{ margin: 30px 0; }
+                .video-holder{
+                    padding: 0;
+                    margin-bottom: 30px;
+                }
+            }
+            & > .quote-holder{
+                margin: 45px 0;
+                padding: 0 30px;
+                .upperline{
+                    width: 30px;
+                    margin: 30px 0 15px;
+                }
+                p{ font-size: 1em; }
+                .author{
+                    padding: 0 15px;
+                    margin: 15px 0 30px;
+                }
+            }
+        }
+    }
+
+    #content{
+        & > .navigation-holder{
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 30px 0 60px;
+            padding: 0 30px;
+            justify-content: none;
+            & > .btn{
+                width: 100%;
+                clear: both;
+                &.btn-next{ margin-top: 15px; }
+                & > a{ font-size: .875em; }
+            }
+        }
+    }
+    
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

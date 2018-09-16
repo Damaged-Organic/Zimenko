@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106471938-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106471938-1');
+    </script>
+    {{> head/meta meta=meta}}
+	{{> head/favicons}}
+    <link rel="stylesheet" href="{{static 'css' 'contact.bundle.min.css'}}">
+</head>
+<body class="preload">
+    <div id="page">
+        <span id="top-lane"></span>
+        <div id="menu">
+            <div class="top-holder">
+                {{> header/logo}}
+                {{> header/btn_close}}
+                {{> header/langs_holder}}
+            </div>
+            {{> menu/menu_holder}}
+			{{> menu/socials_holder}}
+			{{> menu/text_overlay}}
+        </div>
+        <main id="content">
+            <header id="header">
+                {{> header/logo_holder}}
+                {{> header/open_menu_button}}
+                {{> header/langs_holder}}
+            </header>
+            <div class="container contacts-holder">
+                <span class="text-overlay">Zimenko</span>
+                {{> menu/socials_holder}}
+                <section class="intro-holder">
+                    <div class="contact-info">
+                        <h2>{{i18n 'Call us'}}</h2>
+                        <div class="inner">
+                            {{#each contacts}}
+                                <div class="contact">
+                                    <span class="title">{{ fullName }}</span>
+                                    <a href="tel:{{ phoneClean }}">{{ phone }}</a>
+                                    {{#if role}}
+                                        <span class="type">{{ role }}</span>
+                                    {{/if}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </section>
+                <section class="enquiry-holder">
+                    <h2>{{i18n 'Text us'}}</h2>
+                    <div class="inner">
+                        <form action="{{url 'contacts_send'}}" method="POST" enctype="application/x-www-form-urlencoded" id="enquiry-form">
+                            <div class="form-control">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value=""
+                                    placeholder="{{i18n 'Ваше имя'}}"
+                                    id="enquiry-name"
+                                    data-rule-required="true"
+                                    data-msg-required="{{i18n 'Поле должно быть заполнено'}}"
+                                />
+                            </div>
+                            <div class="form-control">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value=""
+                                    placeholder="{{i18n 'Ваш e-mail'}}"
+                                    id="enquiry-email"
+                                    data-rule-required="true"
+                                    data-msg-required="{{i18n 'Поле должно быть заполнено'}}"
+                                    data-rule-email="true"
+                                    data-msg-email="{{i18n 'Некорректный почтовый адрес'}}"
+                                />
+                            </div>
+                            <div class="form-control">
+                                <textarea
+                                    name="message"
+                                    placeholder="{{i18n 'Ваше сообщение'}}"
+                                    id="enquiry-message"
+                                    data-rule-required="true"
+                                    data-msg-required="{{i18n 'Поле должно быть заполнено'}}"
+                                ></textarea>
+                            </div>
+                            <button type="submit">
+                                <span class="text">{{i18n 'Отправить'}}</span>
+                            </button>
+                        </form>
+                    </div>
+                </section>
+                <div class="email-holder">
+                    <a href="mailto:zimenko.dzn@gmail.com">
+                        <span class="line"></span>
+                        <span class="text">zimenko.dzn@gmail.com</span>
+                    </a>
+                </div>
+                <div id="response-holder">
+                    <span class="close icon icon-close"></span>
+                    <div class="inner"></div>
+                </div>
+                <div id="ajax-loader">
+                    <span class="loader"></span>
+                </div>
+            </div>
+        </main>
+        {{> loaders/progress_holder}}
+        <div id="common-loader-holder">
+            {{> loaders/loader}}
+        </div>
+        {{> common/landscape}}
+    </div>
+    <script src="{{static 'js' 'contact.bundle.min.js'}}"></script>
+</body>
+</html>

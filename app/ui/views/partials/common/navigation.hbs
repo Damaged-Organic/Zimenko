@@ -1,0 +1,28 @@
+{{#blockNavigation model route category}}
+    <div id="navigation-holder">
+        {{#if adjacentPages.prev}}
+            <a href="{{url route page=adjacentPages.prev}}{{#if category}}?category={{ category }}{{/if}}" class="prev">
+                <span class="icon icon-arrow-small-left"></span>
+                <span class="text">{{i18n 'previous page'}}</span>
+            </a>
+        {{/if}}
+        
+        <ul class="circles">
+            {{#times pagination.pagesAmount}}
+                <li class="{{#compare @index '===' ../pagination.currentPage}}active{{/compare}}">
+                    <a href="{{ url ../route page=@index }}{{#if ../category}}?category={{../category}}{{/if}}">
+                        <span class="text">{{@index}}</span>
+                    </a>
+                </li>
+            {{/times}}
+        </ul>
+
+        {{#if adjacentPages.next}}
+            <a href="{{url route page=adjacentPages.next}}{{#if category}}?category={{ category }}{{/if}}" class="next">
+                <span class="text">{{i18n 'next page'}}</span>
+                <span class="icon icon-arrow-small-right"></span>
+            </a>
+        {{/if}}
+    </div>
+
+{{/blockNavigation}}

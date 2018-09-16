@@ -1,0 +1,16 @@
+{{#blockMenu}}
+    <nav class="menu-holder">
+        <ul>
+            {{#each this}}
+                {{!-- Skipping 0-indexed element (which should be `index`) page --}}
+                {{#if @index}}
+                    <li {{#isCurrentRoute route}} class="active" {{/isCurrentRoute}}>
+                        <a href="{{url route}}">
+                            {{i18n title }}
+                        </a>
+                    </li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </nav>
+{{/blockMenu}}

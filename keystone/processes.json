@@ -1,0 +1,11 @@
+{
+  "apps" : [{
+    "name"      : "zimenko-keystone",
+    "script"    : "keystone.js",
+    "instances" : 1,
+    "exec_mode" : "cluster",
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }]
+}

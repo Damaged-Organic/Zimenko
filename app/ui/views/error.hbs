@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{status}} - {{message}}!</title>
+    <meta charset="UTF-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    {{> head/favicons}}
+    <link rel="stylesheet" href="{{static 'css' 'error.bundle.min.css'}}">
+</head>
+<body>
+    <div id="page">
+        <header id="header">
+            {{> header/logo_holder}}
+            <a href="{{url 'index'}}" class="back-link">
+                <span class="line"></span>
+                <span class="text">{{i18n 'return home'}}</span>
+            </a>
+        </header>
+        <main id="content">
+            <section class="container error-holder">
+                <span class="text-overlay">{{status}}</span>
+                <h1>{{message}}</h1>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
