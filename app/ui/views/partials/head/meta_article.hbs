@@ -17,4 +17,7 @@
 {{#if article.description}}
   <meta name="description" content="{{article.description}}">
 {{/if}}
+{{#if article.canonical}}
+  <link rel="canonical" href="{{article.canonical}}">
+{{/if}}
 <meta name="robots" content="all">

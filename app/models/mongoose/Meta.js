@@ -12,6 +12,7 @@ let metaSchema = new I18nSchema({
     keywords: I18nStringField,
     description: I18nStringField,
     robots: String,
+    canonical: String,
 });
 
 let Case = mongoose.model(modelName, metaSchema);
