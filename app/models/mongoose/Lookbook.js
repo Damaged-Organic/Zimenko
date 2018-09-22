@@ -29,7 +29,9 @@ const lookbookSchema = new I18nSchema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'LookbookCategory',
     },
-    isPreview: Boolean
+    isPreview: Boolean,
+    description: I18nStringField,
+    canonical: I18nStringField,
 });
 lookbookSchema.perPage = 10;
 

@@ -37,8 +37,12 @@ Meta.add({
 		ru: { type: Types.Textarea },
 		ua: { type: Types.Textarea },
 	},
+	canonical: {
+		en: { type: String },
+		ru: { type: String },
+		ua: { type: String },
+	},
 	robots: { type: String },
-	canonical: { type: String },
 });
 
 Meta.defaultColumns = 'route, title.en, robots';
