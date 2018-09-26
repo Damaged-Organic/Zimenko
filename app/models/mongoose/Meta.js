@@ -11,6 +11,7 @@ let metaSchema = new I18nSchema({
     title: I18nStringField,
     keywords: I18nStringField,
     description: I18nStringField,
+    canonical: I18nStringField,
     robots: String,
 });
 

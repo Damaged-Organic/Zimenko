@@ -14,8 +14,8 @@ var Meta = new keystone.List('Meta', {
 	defaultSort: 'id',
 	defaultColumns: 'route, title',
 	// Enable these operations on initial database fill
-	// nocreate: true,
-	// nodelete: true,
+	nocreate: true,
+	nodelete: true,
 });
 
 Meta.add({
@@ -36,6 +36,11 @@ Meta.add({
 		en: { type: Types.Textarea },
 		ru: { type: Types.Textarea },
 		ua: { type: Types.Textarea },
+	},
+	canonical: {
+		en: { type: String },
+		ru: { type: String },
+		ua: { type: String },
 	},
 	robots: { type: String },
 });

@@ -28,6 +28,8 @@ const articleSchema = new I18nSchema({
         secure_url: String,
     },
     content: I18nStringField,
+    description: I18nStringField,
+    canonical: I18nStringField,
 });
 articleSchema.perPage = 10;
 

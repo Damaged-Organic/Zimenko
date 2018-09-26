@@ -46,6 +46,16 @@ Lookbook.add({
 	isPreview: { type: Boolean, default: false },
 	createdAt: { type: Date, hidden: true },
 	updatedAt: { type: Date, hidden: true },
+	description: {
+		en: { type: Types.Textarea },
+		ru: { type: Types.Textarea },
+		ua: { type: Types.Textarea },
+	},
+	canonical: {
+		en: { type: String },
+		ru: { type: String },
+		ua: { type: String },
+	},
 });
 
 Lookbook.schema.pre('save', function (next) {
